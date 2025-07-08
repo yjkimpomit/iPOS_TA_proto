@@ -14,39 +14,37 @@
 	<link rel="icon" href="/favicon.ico" sizes="any">
 	<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-	<!-- slick & jstree -->
+	<!-- slick & jstree --><!-- 
 	<link rel="stylesheet" href="/js/slick-1.8.1/slick/slick.css">
 	<link rel="stylesheet" href="/js/slick-1.8.1/slick/slick-theme.css">
-	<link rel="stylesheet" href="/js/jsTree/css/style.min.css">
+	<link rel="stylesheet" href="/js/jsTree/css/style.min.css"> -->
 
 	<!-- slick & jsTree & highchart -->
+	<!-- 
 	<script src="/js/jquery-3.6.1.js"></script>
-	<script src="/js/slick-1.8.1/slick/slick.min.js"></script>
-	
-	<!-- highchart -->
-	<script src="/js/highcharts/highcharts.js"></script>
-	<script src="/js/highcharts/modules/data.js"></script>
-	<script src="/js/highcharts/highcharts-more.js"></script>
-	<script src="/js/highcharts/modules/exporting.js"></script>
-	<script src="/js/highcharts/modules/export-data.js"></script>
-	<script src="/js/highcharts/modules/accessibility.js"></script>
+	<script src="/js/slick-1.8.1/slick/slick.min.js"></script> -->
 
 	<!-- toastchart -->
-	<script src="/js/toastchart/toastui-chart.js"></script>
+	<!-- <script src="/js/toastchart/toastui-chart.js"></script> -->
 
 	<!-- chartjs -->
-	<script src="/js/chart/chart.umd.js"></script>
-	<script src="/js/chart/chartjs-adapter-date-fns.bundle.min.js"></script>
+	<!-- <script src="/js/chart/chart.umd.js"></script>
+	<script src="/js/chart/chartjs-adapter-date-fns.bundle.min.js"></script> -->
 
 	<!-- jstree -->
-	<script src="/js/jsTree/js/jstree.min.js"></script>
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
 
 	<!-- 부트스트랩 JS -->
-	<script src="/css/bootstrap/dist/js/popper.min.js"></script>
-	<script src="/css/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"></script>
 
 	<!-- bPopup -->
-	<script src="/js/jquery.bpopup.min.js"></script>
+	 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<!-- <script src="/js/jquery.bpopup.min.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/bpopup@0.11.0/jquery.bpopup.min.js"></script>
+
 
 	<!-- WP stylesheet -->
 	<link rel="stylesheet" href="/css/common.css">
@@ -54,11 +52,11 @@
 	<script src="/js/device-info.js" defer></script>
 
 	<!-- 모델-웹 설비정보 연계 -->
-	<script src="/js/unityUtil.js"></script>
+	<!-- <script src="/js/unityUtil.js"></script>
 	<script src="/js/webUtil.js"></script>
 
 	<link rel="stylesheet" href="/unity3DViewer/TemplateData/style.css">
-	<link rel="manifest" href="/unity3DViewer/manifest.webmanifest">
+	<link rel="manifest" href="/unity3DViewer/manifest.webmanifest"> -->
 </head>
 
 <body class="main">
@@ -75,12 +73,12 @@
 	<div id="incOp" class="op-info"></div>
 
 	<!-- 메뉴파일 로드 -->
-	<div id="incLeft" class="left-box"></div>
+	<div id="incMenu" class="toggle-box menu"></div>
 
-	<!-- 우측정보 로드
-	<div id="incRight" class="right-box"></div> -->
+	<!-- 대시보드 로드 -->
+	<div id="incDashboard" class="toggle-box dashboard"></div>
 
-	<span style="position: absolute; top: 0; left: 0; z-index: 301;" onclick="openControlGuide()">가이드박스</span>
+	<!-- <span style="position: absolute; top: 0; left: 0; z-index: 301;" onclick="openControlGuide()">가이드박스</span> -->
 
 	<!-- 3D모델 사용가이드 -->
 	<div class="unity-guide">
@@ -187,19 +185,18 @@
 	</script>
 
 	<!-- 유니티 시작 - Data 폴더 Path-->
-	
-	<input id="dataPath" type="hidden" value="unity3DViewer">
+	<!-- <input id="dataPath" type="hidden" value="unity3DViewer"> -->
 	<div id="unity-container">
-		<canvas id="unity-canvas" width="960" height="600" tabindex="-1"></canvas>
+		<!-- <canvas id="unity-canvas" width="960" height="600" tabindex="-1"></canvas>
 		<div id="unity-loading-bar">
 			<div id="unity-logo"></div>
 			<div id="unity-progress-bar-empty">
 			<div id="unity-progress-bar-full"></div>
 			</div>
 		</div>
-		<div id="unity-warning"> </div>
+		<div id="unity-warning"> </div> -->
 	</div>
-	<script src="/js/unity3DViewer.js"></script>
+	<!-- <script src="/js/unity3DViewer.js"></script> -->
 
 	<!-- 검색박스내 부서 검색시 열리는 팝업 : 트리박스만 나오는 팝업 bPopup -->
 	<div class="modal fade search-popup type1" id="searchTreePopup" tabindex="-1">
@@ -346,24 +343,25 @@
 		//
 		$.ajax({
 			method: 'GET',
-			url: 'incLeft.html',
+			url: 'incMenu.html',
 			async: false,
 			dataType: 'html'
 		}).done(function(html) {
-			$('#incLeft').append(html);
+			$('#incMenu').append(html);
 		});
 
 		//
 		$.ajax({
 			method: 'GET',
-			url: 'incRight.html',
+			url: 'incDashboard.html',
 			async: false,
 			dataType: 'html'
 		}).done(function(html) {
-			$('#incRight').append(html);
+			$('#incDashboard').append(html);
 		});
 
 		//
+		/* 
 		$.ajax({
 			method: 'GET',
 			url: 'numbering.html',
@@ -371,7 +369,7 @@
 			dataType: 'html'
 		}).done(function(html) {
 			$('#numbering').append(html);
-		});
+		}); */
 	</script>
 </body>
 

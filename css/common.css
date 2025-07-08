@@ -8,12 +8,12 @@
  * 
  */
 
-@import url(/css/bootstrap/dist/css/bootstrap.min.css);
+@import url(https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css);
 @import url(/css/reset.css);
 
 /*#################### 폰트 ####################*/
-@import url(/fonts/NotoSansKR/NotoSansKR.css);
-@import url(/fonts/Roboto/Roboto.css);
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap);
 
 @import url(/css/variables.css);
 @import url(/css/animation.css);
@@ -21,7 +21,8 @@
 
 @import url(/css/incTop.css);
 @import url(/css/incOp.css);
-@import url(/css/incLeft.css);
+@import url(/css/incMenu.css);
+@import url(/css/incDashboard.css);
 
 /* @import url(/css/incRight.css); */
 
@@ -627,6 +628,14 @@ input[id="facilityRefList"] + .title03 {
 }
 
 
+/* menu */
+.toggle-box {
+	position: absolute;
+	top: 0;
+	z-index: 5;
+	transition: top .5s ease-in-out;
+}
+
 /* tab */
 .nav-link.active {
 	font-weight: 500;
@@ -882,7 +891,8 @@ body.non-touch-device .unity-guide-body.mouse {
 #unity-container {
 	position: fixed;
 	width: 100%;
-	height: calc(100% - var(--header-height-md));
+	/* height: calc(100% - var(--header-height-md)); */
+	height: 100vh;
 	
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -891,11 +901,15 @@ body.non-touch-device .unity-guide-body.mouse {
 
 	z-index: 1;
 	background-color: #f6f7f9;
+	background-image: url(/images/sample/unity.jpg);
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 @media (min-width: 1600px) {
 	#unity-container {
-		height: calc(100% - var(--header-height));
+		/* height: calc(100% - var(--header-height)); */
 	}
 }
 

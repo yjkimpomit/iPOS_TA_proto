@@ -4,11 +4,12 @@
 
 .header-box {
 	width: 100%;
-	position: relative;
+	position: absolute;
 	height: var(--header-height-md);
 	overflow: hidden;
+	z-index: 2;
 }
-.header-box::before {
+.mobile .header-box::before {
 	content: '';
 
 	display: block;
@@ -39,7 +40,7 @@
 	align-items: center;
 	justify-content: center;
 
-	background: var(--bg-default-default);
+	background: var(--white-800);
 	position: relative;
 }
 

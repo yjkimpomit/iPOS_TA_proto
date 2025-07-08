@@ -1,0 +1,103 @@
+@charset "utf-8";
+	
+.toggle-box.dashboard .icon-toggle {
+	background-color: var(--white-800);
+	background-image: url(/images/icons/icon-dashboard-dark.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+}	
+.toggle-box.dashboard.active .icon-toggle {
+	background-color: var(--white-900);
+	background-image: url(/images/icons/icon-close-dark.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+	
+.toggle-box.dashboard .pin-toggle {
+	width: 32px;
+	height: 32px;
+	border-radius: .25rem;
+	background-color: var(--white-800);
+	border: solid 1px var(--border-neutral-secondary);
+
+	position: relative;
+}
+
+.toggle-box.dashboard .pin-toggle:hover {
+	background-color: var(--white-900);
+}
+
+.toggle-box.dashboard .pin-toggle::after {
+	content: '';
+	position: absolute;
+
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	width: 24px;
+	height: 24px;
+
+	background-image: url(/images/icons/icon-keep-dark.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.toggle-box.dashboard .pin-toggle.disabled::after {
+	background-image: url(/images/icons/icon-keep-dark.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	transform: translate(-50%, -50%) rotate(30deg);
+}
+
+.toggle-box.dashboard .pin-toggle.disabled {
+	background-color: var(--white-900);
+}
+
+@media (min-width: 1600px) {
+	
+	.toggle-box.dashboard .icon-toggle {
+		position: fixed;
+		top: 1.25rem;
+		left: 20rem;
+	}
+	
+}
+
+.dashboard-list {
+	display: none;
+}
+
+.active .dashboard-list {
+	display: block;
+
+	position: absolute;
+	top: calc(var(--header-height) + 6rem);
+	left: 1rem;
+	width: 240px;
+
+	padding: .5rem;
+	background-color: var(--black-200);
+	border: solid 1px var(--black-200);
+	border-radius: .5rem;
+}
+
+.active .dsh {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background-color: var(--bg-default-default);
+	color: var(--text-neutral-default);
+
+	padding: 1rem;
+	height: 240px;
+	border: solid 1px var(--border-neutral-default);
+	border-radius: .25rem;
+	margin-bottom: 1rem;
+}
+
+.active .dsh.item03 {
+	height: 280px;
+	margin-bottom: 0;
+}

@@ -1,9 +1,9 @@
 
-<button id="toggle-button" class="menu-icon collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#menuList" aria-expanded="false" aria-controls="menuList">
-	<img src="/images/icons/icon-menu.svg" alt="메뉴 열기">
+<button id="toggle-button" class="icon-toggle" type="button" onclick="togglePanel(this)">
+	<span class="visually-hidden">메뉴 열기</span>
 </button>
 
-<nav id="menuList" class="menu-list collapse">
+<nav id="menuList" class="menu-list">
 	<ul>
 		<li>
 			<a href="#" onclick="openPopup('modal01-facility.html', $(this));" class="menu-link" data-class="facility folded with-tree" data-title="설비정보"><span>설비정보</span></a>

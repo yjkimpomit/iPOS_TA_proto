@@ -1,71 +1,83 @@
 @charset "utf-8";
 
-/*#################### 좌측메뉴 ####################*/
-.left-box {
-	position: absolute;
-	top: 0;
-	z-index: 200;
-	transition: top .5s ease-in-out;
-}
+/*#################### 메뉴 ####################*/
 
-.menu-icon {
+.icon-toggle {
 	width: 48px;
 	height: 48px;
 	cursor: pointer;
 	border: none;
-	background-color: var(--bg-brand-dark);
+	border: solid 1px var(--border-neutral-tertiary);
+	background-color: var(--bg-neutral-tertiary);
+	border-radius: .25rem;
 
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-.menu-icon:hover {
-	background-color: var(--bg-brand-darkhover);
+.icon-toggle:hover {
+	background-color: var(--bg-neutral-secondary);
 }
-
-.menu-icon.collapsed > img {
-	margin-left: 0;
+	
+.toggle-box.menu .icon-toggle {
+	background-color: var(--white-800);
+	background-image: url(/images/icons/icon-menu-dark.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+}	
+.toggle-box.menu.active .icon-toggle {
+	background-color: var(--white-900);
+	background-image: url(/images/icons/icon-close-dark.svg);
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 @media (min-width: 1600px) {
-	.left-box {
-		top: 8.5rem;
-		left: 1rem;
-	}
 	
-	.left-box .menu-icon.collapsed {
+	.toggle-box.menu .icon-toggle {
 		position: fixed;
 		top: 1.25rem;
-		left: 17.5rem;
+		left: 16rem;
 	}
 
-	.left-box:has(.menu-list.collapse.show) {
-		box-shadow: var(--bs-box-shadow);
-	}
-	.left-box nav {
+	.toggle-box nav {
 		box-shadow: none;
 	}
-	
-	.menu-icon[aria-expanded='true'] {
-		width: var(--gnb-width);
-		justify-content: flex-start;
+
+	.toggle-box.active.menu {
+		box-shadow: var(--bs-box-shadow);
+		height: calc(var(--header-height) - 1px);
+		display: flex;
+		position: fixed;
+		top: var(--header-height);
+		left: 0;
+		right: 0;
 	}
-	.menu-icon[aria-expanded='true'] > img {
-		margin-left: .375rem;
+	.toggle-box.active.menu nav {
+		width: 100%;
 	}
-	.menu-icon[aria-expanded='false'] {
-		width: 48px;
+
+	.toggle-box.active.menu nav ul {
+		display: flex;
+		align-items: center;
 		justify-content: center;
+		height: 100%;
 	}
+	.toggle-box.active.menu nav ul > li {
+		padding-left: 2rem;
+		padding-right: 2rem;
+		height: 100%;
+	}
+
 }
 
 	
-/* CCTV hide - 모바일 기기에서ㅗ CCTV 사용안함 */
-body.phone .left-box nav li:has(a[data-class="cctv"]),
-body.tablet .left-box nav li:has(a[data-class="cctv"]),
-body.ipad .left-box nav li:has(a[data-class="cctv"]),
-body.iphone .left-box nav li:has(a[data-class="cctv"]) {
+/* CCTV hide - 모바일 기기에서 CCTV 사용안함 */
+body.phone .toggle-box nav li:has(a[data-class="cctv"]),
+body.tablet .toggle-box nav li:has(a[data-class="cctv"]),
+body.ipad .toggle-box nav li:has(a[data-class="cctv"]),
+body.iphone .toggle-box nav li:has(a[data-class="cctv"]) {
 	display: none;
 }
 
@@ -80,17 +92,17 @@ nav {
 	box-shadow: var(--bs-box-shadow);
 }
 
-nav.show {
+.toggle-box.active nav {
 	width: var(--gnb-width);
 	height: auto;
-	background-color: var(--white-700);
+	background-color: #ffffffe8;
 }
 
 @media (max-height: 640px) and (orientation: landscape) {
-	.left-box:has(nav.show) {
+	.toggle-box.active {
 		bottom: 0;
 	}
-	nav.show {
+	.toggle-box.active nav {
 		height: calc(100% - 48px);
 		overflow-y: auto;
 	}
@@ -100,8 +112,8 @@ nav ul > li {
 	cursor: pointer;
 
 	padding: 0 .75rem;
-	height: 4.5rem;
-	background-color: var(--bg-default-default);
+	/* height: 4.5rem;
+	background-color: var(--bg-default-default); */
 	border-bottom: solid 1px var(--border-neutral-tertiary);
 }
 
