@@ -1,0 +1,207 @@
+@charset "utf-8";
+
+/*#################### 좌측메뉴 ####################*/
+.left-box {
+	position: absolute;
+	top: 0;
+	z-index: 200;
+	transition: top .5s ease-in-out;
+}
+
+.menu-icon {
+	width: 48px;
+	height: 48px;
+	cursor: pointer;
+	border: none;
+	background-color: var(--bg-brand-dark);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.menu-icon:hover {
+	background-color: var(--bg-brand-darkhover);
+}
+
+.menu-icon.collapsed > img {
+	margin-left: 0;
+}
+
+@media (min-width: 1600px) {
+	.left-box {
+		top: 8.5rem;
+		left: 1rem;
+	}
+	
+	.left-box .menu-icon.collapsed {
+		position: fixed;
+		top: 1.25rem;
+		left: 17.5rem;
+	}
+
+	.left-box:has(.menu-list.collapse.show) {
+		box-shadow: var(--bs-box-shadow);
+	}
+	.left-box nav {
+		box-shadow: none;
+	}
+	
+	.menu-icon[aria-expanded='true'] {
+		width: var(--gnb-width);
+		justify-content: flex-start;
+	}
+	.menu-icon[aria-expanded='true'] > img {
+		margin-left: .375rem;
+	}
+	.menu-icon[aria-expanded='false'] {
+		width: 48px;
+		justify-content: center;
+	}
+}
+
+	
+/* CCTV hide - 모바일 기기에서ㅗ CCTV 사용안함 */
+body.phone .left-box nav li:has(a[data-class="cctv"]),
+body.tablet .left-box nav li:has(a[data-class="cctv"]),
+body.ipad .left-box nav li:has(a[data-class="cctv"]),
+body.iphone .left-box nav li:has(a[data-class="cctv"]) {
+	display: none;
+}
+
+/* nav.menu-list */
+nav {
+	position: relative;
+	width: 0;
+	height: 0;
+
+	overflow: hidden;
+	transition: left 0.01s ease-in-out;
+	box-shadow: var(--bs-box-shadow);
+}
+
+nav.show {
+	width: var(--gnb-width);
+	height: auto;
+	background-color: var(--white-700);
+}
+
+@media (max-height: 640px) and (orientation: landscape) {
+	.left-box:has(nav.show) {
+		bottom: 0;
+	}
+	nav.show {
+		height: calc(100% - 48px);
+		overflow-y: auto;
+	}
+}
+
+nav ul > li {
+	cursor: pointer;
+
+	padding: 0 .75rem;
+	height: 4.5rem;
+	background-color: var(--bg-default-default);
+	border-bottom: solid 1px var(--border-neutral-tertiary);
+}
+
+nav ul > li > a {
+	font-size: 1rem;
+	font-weight: 500;
+	background-size: 2rem;
+	padding-left: 2.75rem;
+}
+
+nav ul > li > a small {
+	font-size: 75%;
+	font-family: "Roboto Medium";
+	font-style: italic;
+
+	color: var(--text-danger-tertiary);
+	line-height: 1.2;
+}
+
+nav ul > li.active {
+	background-color: var(--bg-brand-secondary);
+}
+
+/* 메뉴 아이콘 */
+nav ul > li > a {
+	background-position: left center;
+	background-repeat: no-repeat;
+	background-size: 2rem;
+
+	padding-left: 2.75rem;
+	height: 100%;
+
+	display: flex;
+	flex-direction: column;
+	justify-items: center;
+	justify-content: center;
+	
+	transition: background-position .3s ease-in-out;
+}
+
+nav ul > li > a:hover {
+	background-position: left 40%;
+	color: var(--text-brand-secondary);
+}
+
+/* temp */
+nav ul > li > a:hover {
+	color: inherit;
+}
+
+nav ul > li > a {
+	background-image: url("/images/icons/gnb-icon00.svg");
+}
+
+nav ul > li > a[data-class*="facility"] {
+	background-image: url("/images/icons/gnb-icon01.svg");
+}
+
+nav ul > li > a[data-class*="tm"] {
+	background-image: url("/images/icons/gnb-icon02.svg");
+}
+
+nav ul > li > a[data-class*="red-tag"] {
+	background-image: url("/images/icons/gnb-icon03.svg");
+}
+
+nav ul > li > a[data-class*="prevention"] {
+	background-image: url("/images/icons/gnb-icon04.svg");
+}
+
+nav ul > li > a[data-class*="apc"] {
+	background-image: url("/images/icons/gnb-icon05.svg");
+}
+
+nav ul > li > a[data-class*="dashboard"] {
+	background-image: url("/images/icons/gnb-icon06.svg");
+}
+/* 
+nav ul > li > a[data-class*="i-plis"] {
+	background-image: url("/images/icons/gnb-icon07.svg");
+}
+ */
+nav ul > li > a[data-class*="cctv"] {
+	background-image: url("/images/icons/gnb-icon08.svg");
+}
+nav ul > li > a[data-class*="panorama"] {
+	background-image: url("/images/icons/gnb-icon09.svg");
+}
+
+/* 작업된 메뉴 표시 
+nav ul > li > a[data-class] {
+	color: var(--text-neutral-default);
+}
+*/
+
+/* 모바일, 태블릿에서 CCTV 메뉴 가리기 */
+body.phone nav ul li:has(a[data-title="CCTV"]), 
+body.tablet nav ul li:has(a[data-title="CCTV"]), 
+body.ipad nav ul li:has(a[data-title="CCTV"]), 
+body.iphone nav ul li:has(a[data-title="CCTV"]) {
+	display: none;	
+}
+

@@ -1,0 +1,78 @@
+/* 매뉴얼용 넘버링 */
+.numbering {
+	display: none;
+}
+.numbering span {
+	position: absolute;
+	z-index: 9999;
+	width: 48px;
+	height: 48px;
+	border-radius: 24px;
+	font-size: 1.6rem;
+	font-weight: 700;
+	color: white;
+	background-color: #DB134C;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform: translate(-50%, -50%);
+}
+
+.numbering span[class*='dir-']::after {
+	position: absolute;
+	display: inline-block;
+    content: '';
+    width: 0;
+    height: 0;
+    border-width: 16px 10px 0 10px;
+    border-style: solid;
+    border-color: #DB134C transparent transparent transparent;
+}
+
+.numbering span.dir-left::after {
+	top: 50%;
+	left: 0;
+	transform: translate(-10px, -50%) rotate(90deg);
+}
+
+.numbering span.dir-right::after {
+	top: 50%;
+	right: 0;
+	transform: translate(10px, -50%) rotate(270deg);
+}
+
+.numbering span.dir-bottom::after {
+    bottom: 0;
+    left: 50%;
+	transform: translate(-50%, 10px) rotate(0deg);
+}
+
+.numbering span.sm {
+    font-size: 1.2rem;
+    width: 32px;
+    height: 32px;
+}
+.numbering span.sm {
+	background-color: #840025;
+}
+.numbering span.sm::after {
+	border-color: #840025 transparent transparent transparent;
+}
+	
+.numbering span.sm.dir-left::after {
+	top: 50%;
+	left: 0;
+	transform: translate(-10px, -50%) rotate(90deg);
+}
+
+.numbering span.sm.dir-right::after {
+	top: 50%;
+	right: 0;
+	transform: translate(10px, -50%) rotate(270deg);
+}
+
+.numbering span.sm.dir-bottom::after {
+    bottom: 0;
+    left: 50%;
+	transform: translate(-50%, 10px) rotate(0deg);
+}

@@ -1,0 +1,25 @@
+# 유니티 관련 제외
+/unity3DViewer/
+
+#manifest.webmanifest
+#ServiceWorker.js
+
+#js 관련
+#/js/jsTree/
+#/js/pdfjs/
+
+#Mac
+.DS_Store
+
+#temp
+#/fonts/
+#/css/bootstrap/
+#/sample/
+
+/fonts/
+/css/bootstrap/
+/sample/
+/js/dataTables-/
+/js/DataTables/
+/js/
+/css/pano/
